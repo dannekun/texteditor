@@ -22,7 +22,7 @@ public class Text extends JFrame {
     private JButton spara = new JButton("Spara");
     private JButton sluta = new JButton("Sluta");
     private JButton skriv = new JButton("Skriv");
-    private JTextField area = new JTextField(10, 60);
+    private JTextArea area = new JTextArea(10, 60);
     private JScrollPane sp = new JScrollPane(area, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 
@@ -38,6 +38,21 @@ public class Text extends JFrame {
 
 
         class ReadFileListener implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+            läsInFil(namn.getText());
+            }
+        }
+
+        class SaveFileListener implements ActionListener{
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                sparaFil(namn.getText());
+            }
+        }
+
+        class PrintFileListener implements ActionListener{
+
             @Override
             public void actionPerformed(ActionEvent e) {
 
