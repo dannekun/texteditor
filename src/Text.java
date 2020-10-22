@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PrinterException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -55,9 +56,25 @@ public class Text extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            try{
+                area.print();
+            } catch (PrinterException printerException) {
+                printerException.printStackTrace();
+            }
             }
         }
+        namn.addActionListener(new ReadFileListener());
+        öppna.addActionListener(new ReadFileListener());
+        spara.addActionListener(new ReadFileListener());
+        skriv.addActionListener(new ReadFileListener());
+        sluta.addActionListener(new ReadFileListener());
+
+        add(p, BorderLayout.NORTH);
+        add(sp, BorderLayout.SOUTH);
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
     }
