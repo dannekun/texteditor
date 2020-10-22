@@ -63,11 +63,18 @@ public class Text extends JFrame {
             }
             }
         }
+
+        class ExitListener implements ActionListener{
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        }
         namn.addActionListener(new ReadFileListener());
         öppna.addActionListener(new ReadFileListener());
-        spara.addActionListener(new ReadFileListener());
-        skriv.addActionListener(new ReadFileListener());
-        sluta.addActionListener(new ReadFileListener());
+        spara.addActionListener(new SaveFileListener());
+        skriv.addActionListener(new PrintFileListener());
+        sluta.addActionListener(new ExitListener());
 
         add(p, BorderLayout.NORTH);
         add(sp, BorderLayout.SOUTH);
